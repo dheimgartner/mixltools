@@ -215,10 +215,41 @@ vi <- function(model, x_k, na = 9999)
 
 
 
-## only for simplest of MNL
-partworth <- function()
+#' Generate inputs for partworth analysis
+#'
+#' @param model output from `mixl::estimate`
+#' @param na NA encodings; defaults to 9999
+#' @param file full path to file (should end with .xlsx); defaults to `NULL`
+#'
+#' @return
+#' @export
+partworth <- function(model, na = 9999, file = NULL)
 {
-  NULL
+  data <- model$data
+  data[data == na] <- NA
+  data_cols <- model$model_spec$data_cols
+  mean_x <- apply(data[data_cols], MARGIN = 2, function(x) abs(mean(x, na.rm = TRUE)))
+  betas <- abs(model$estimate)
+
+  if(!is.null(file))
+  {
+    is_xlsx <- stringr::str_detect(file, ".xlsx")
+    assertthat::assert_that(is_xlsx,
+                            msg = "file should end with .xlsx")
+
+    wb <- xlsx::createWorkbook()
+    sheet_mean <- xlsx::createSheet(wb, "mean_x")
+    sheet_betas <- xlsx::createSheet(wb, "betas")
+
+    xlsx::addDataFrame(as.data.frame(mean_x), sheet = sheet_mean, startColumn = 1, row.names = TRUE)
+    xlsx::addDataFrame(as.data.frame(betas), sheet = sheet_betas, startColumn = 1, row.names = TRUE)
+
+    xlsx::saveWorkbook(wb, file)
+  }
+
+  out <- list(mean_x = mean_x, betas = betas)
+
+  return(out)
 }
 
 
