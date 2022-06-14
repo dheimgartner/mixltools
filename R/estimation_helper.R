@@ -1,4 +1,4 @@
-estimate_helper <- function(data, utility_script, nDraws, ...)
+estimation_helper <- function(data, utility_script, nDraws, ...)
 {
 
   n_available_choices <- length(unique(data$CHOICE))
