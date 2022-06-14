@@ -3,6 +3,7 @@
 export("%>%")
 export(delta)
 export(deltamethod)
+export(estimation_helper)
 export(fashion_show)
 export(stability_check)
 importFrom(magrittr,"%>%")

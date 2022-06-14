@@ -1,3 +1,14 @@
+#' Helper to generate default availabilites and starting values
+#'
+#' Wrapper around `mixl::estimate`
+#'
+#' @param data
+#' @param utility_script
+#' @param nDraws
+#' @param ...
+#'
+#' @return
+#' @export
 estimation_helper <- function(data, utility_script, nDraws, ...)
 {
 
