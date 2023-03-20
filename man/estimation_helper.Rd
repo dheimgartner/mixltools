@@ -9,9 +9,6 @@ estimation_helper(data, utility_script, nDraws, ...)
 \arguments{
 \item{...}{}
 }
-\value{
-
-}
 \description{
 Wrapper around \code{mixl::estimate}
 }

@@ -13,9 +13,6 @@ partworth(model, na = 9999, file = NULL)
 
 \item{file}{full path to file (should end with .xlsx); defaults to \code{NULL}}
 }
-\value{
-
-}
 \description{
 Generate inputs for partworth analysis
 }

@@ -9,9 +9,6 @@ stability_check(data, utility_script, nDraws, mean = 1, sd = 1)
 \arguments{
 \item{sd}{}
 }
-\value{
-
-}
 \description{
 Randomly creates starting values
 }

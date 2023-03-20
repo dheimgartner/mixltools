@@ -9,9 +9,6 @@ deltamethod(model, formula, robust = TRUE, ses = TRUE)
 \arguments{
 \item{ses}{}
 }
-\value{
-
-}
 \description{
 Delta method
 }
