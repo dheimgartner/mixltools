@@ -13,13 +13,14 @@
 
 ################################################
 
-
+#' @export
 vcov <- function(model)
 {
   mixl:::vcov.mixl(model)
 }
 
 
+#' @export
 robvcov <- function(model)
 {
   betas <- model$estimate
@@ -100,6 +101,7 @@ delta <- function(g, mean, cov, ses = TRUE)
 
 
 
+#' @export
 mean_probs <- function(model, data, ...)
 {
   probs <- as.data.frame(mixl::probabilities(model = model, data = data, ...))
@@ -114,6 +116,9 @@ mean_probs <- function(model, data, ...)
 }
 
 
+
+
+#' @export
 get_col_specs <- function(col_spec, cols)
 {
   full_col_spec <- sapply(cols, function(x) {
@@ -128,6 +133,8 @@ get_col_specs <- function(col_spec, cols)
 
 
 
+
+#' @export
 mpe <- function(model, col_spec, increase_factor = NULL, ...)
 {
   check_col_spec(col_spec)
